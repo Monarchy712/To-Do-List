@@ -1,0 +1,186 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(circle at top, #1f1f2e, #0b0b12);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+  width: 360px;
+  background: rgba(30, 30, 40, 0.78);
+  backdrop-filter: blur(14px);
+  padding: 26px 22px;
+  border-radius: 18px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65);
+}
+
+/* ================= HEADER ================= */
+h1 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 0.4px;
+}
+
+/* ================= INPUT ================= */
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #2a2a3a;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+input:focus {
+  background: #30304a;
+  box-shadow: 0 0 0 2px #7c7cff;
+}
+
+/* ================= ADD BUTTON ================= */
+button {
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #7c7cff, #5a5af0);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(124, 124, 255, 0.35);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ================= TASK LIST ================= */
+ul {
+  list-style: none;
+  max-height: 320px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #44446a;
+  border-radius: 10px;
+}
+
+/* ================= TASK ITEM ================= */
+li {
+  position: relative;
+  background: #262636;
+  padding: 12px 14px 12px 42px;
+  margin-bottom: 12px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: background 0.25s ease, transform 0.2s ease, opacity 0.25s ease;
+}
+
+li:hover {
+  background: #2f2f45;
+  transform: translateX(2px);
+}
+
+/* ================= TASK TEXT ================= */
+.task-text {
+  flex: 1;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+/* ================= COMPLETED STATE ================= */
+li.completed {
+  background: linear-gradient(135deg, #1f3a2b, #1a2f25);
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+/* Checkmark animation */
+li.completed::before {
+  content: "✓";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%) scale(0);
+  font-size: 16px;
+  font-weight: 700;
+  color: #22c55e;
+  animation: checkPop 0.35s ease forwards;
+}
+
+/* Strike-through */
+li.completed .task-text {
+  color: #86efac;
+  text-decoration: line-through;
+}
+
+/* ================= DELETE BUTTON ================= */
+li button {
+  background: #ef4444;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+li button:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes checkPop {
+  0% {
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(-50%) scale(1.25);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+}
