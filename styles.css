@@ -184,3 +184,19 @@ li button:hover {
     transform: translateY(-50%) scale(1);
   }
 }
+/* ================= SAVE INDICATOR ================= */
+.save-indicator {
+  position: fixed;
+  bottom: 16px;
+  right: 18px;
+  font-size: 18px;
+  color: #9ca3af;
+  background: rgba(20, 20, 30, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.85;
+}
